@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducción a JavaScript - CRUD de Tareas</title>
+
+  <!--
+    Este archivo HTML contiene la estructura de la página.
+    La lógica de JavaScript está en app.js para mantener el código ordenado.
+  -->
+
+  <style>
+    /* CSS básico para que el ejemplo sea agradable sin necesitar otro archivo */
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 16px;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: #2563eb;
+      color: white;
+      margin-top: 16px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .secondary {
+      background: #64748b;
+    }
+
+    .secondary:hover {
+      background: #475569;
+    }
+
+    .danger {
+      background: #dc2626;
+    }
+
+    .danger:hover {
+      background: #b91c1c;
+    }
+
+    .task {
+      border-bottom: 1px solid #ddd;
+      padding: 12px 0;
+    }
+
+    .task:last-child {
+      border-bottom: none;
+    }
+
+    .task-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: #64748b;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .empty-message {
+      text-align: center;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <h1>Introducción a JavaScript</h1>
+  <h2>Mini CRUD de tareas</h2>
+
+  <section class="card">
+    <p>
+      En este ejemplo practicamos conceptos básicos de JavaScript:
+      variables, arrays, objetos, funciones, condicionales, eventos,
+      manipulación del DOM y localStorage.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Crear / Editar tarea</h2>
+
+    <!-- Formulario para crear o editar tareas -->
+    <form id="taskForm">
+      <!-- Campo oculto: sirve para saber si estamos editando una tarea existente -->
+      <input type="hidden" id="taskId" />
+
+      <label for="taskTitle">Título de la tarea</label>
+      <input
+        type="text"
+        id="taskTitle"
+        placeholder="Ejemplo: Estudiar funciones"
+        required
+      />
+
+      <label for="taskPriority">Prioridad</label>
+      <select id="taskPriority">
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Alta">Alta</option>
+      </select>
+
+      <button type="submit" id="saveButton">Guardar tarea</button>
+      <button type="button" id="cancelButton" class="secondary">Cancelar edición</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Listado de tareas</h2>
+
+    <!-- Aquí JavaScript insertará dinámicamente las tareas -->
+    <div id="taskList"></div>
+  </section>
+
+  <!-- Conectamos el archivo JavaScript externo al final del body.
+       Esto permite que el HTML cargue antes de ejecutar el JS. -->
+  <script src="app.js"></script>
+</body>
+</html>
