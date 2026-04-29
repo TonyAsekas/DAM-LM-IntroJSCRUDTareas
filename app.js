@@ -24,3 +24,4 @@ let alumno = {
 };
 console.log(alumno);
 console.log(alumno.dni);
+
