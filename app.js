@@ -22,3 +22,5 @@ let alumno = {
     edad:20,
     aprobado: true
 };
+console.log(alumno);
+console.log(alumno.dni);
